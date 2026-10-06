@@ -1,0 +1,16 @@
+{
+  "name": "pdf-platform",
+  "version": "1.0.0",
+  "description": "Professional real-time PDF platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "socket.io": "^4.8.1",
+    "better-sqlite3": "^12.4.1"
+  }
+}
