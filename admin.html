@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Developer Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="css/admin.css"
+    >
+
+</head>
+
+<body>
+
+    <div class="admin-background"></div>
+
+    <header class="admin-navbar">
+
+        <div>
+
+            <div class="admin-brand">
+                Developer Dashboard
+            </div>
+
+            <div class="admin-subtitle">
+                PDF Management System
+            </div>
+
+        </div>
+
+        <button
+            id="logoutButton"
+            class="logout-button"
+        >
+            Logout
+        </button>
+
+    </header>
+
+
+    <main class="dashboard">
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <span>
+                    TOTAL DOCUMENTS
+                </span>
+
+                <strong id="totalPDFs">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    MODULES
+                </span>
+
+                <strong id="totalModules">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <span>
+                    REAL-TIME
+                </span>
+
+                <strong class="online">
+                    LIVE
+                </strong>
+
+            </div>
+
+        </section>
+
+
+        <section class="upload-panel">
+
+            <div class="panel-title">
+
+                <div>
+
+                    <span>
+                        DOCUMENT MANAGEMENT
+                    </span>
+
+                    <h1>
+                        Publish PDF
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <form id="uploadForm">
+
+                <div class="input-group">
+
+                    <label>
+                        Document title
+                    </label>
+
+                    <input
+                        id="title"
+                        name="title"
+                        type="text"
+                        placeholder="Example: Industrial Maintenance"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>
+                        Module
+                    </label>
+
+                    <input
+                        id="module"
+                        name="module"
+                        type="text"
+                        placeholder="Example: Module 01"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="file-zone">
+
+                    <input
+                        id="pdf"
+                        name="pdf"
+                        type="file"
+                        accept=".pdf,application/pdf"
+                        required
+                    >
+
+                    <div class="file-content">
+
+                        <div class="upload-icon">
+                            ↑
+                        </div>
+
+                        <strong>
+                            Choose PDF file
+                        </strong>
+
+                        <span>
+                            Maximum size: 100 MB
+                        </span>
+
+                        <div
+                            id="selectedFile"
+                            class="selected-file"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="publish-button"
+                    type="submit"
+                >
+                    Publish Document
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="documents-panel">
+
+            <div class="documents-header">
+
+                <div>
+
+                    <span>
+                        DATABASE
+                    </span>
+
+                    <h2>
+                        Published Documents
+                    </h2>
+
+                </div>
+
+                <div
+                    id="status"
+                    class="status"
+                >
+                    Connected
+                </div>
+
+            </div>
+
+
+            <div
+                id="adminDocuments"
+                class="admin-documents"
+            ></div>
+
+        </section>
+
+    </main>
+
+
+    <div
+        id="editModal"
+        class="modal hidden"
+    >
+
+        <div class="modal-bg"></div>
+
+        <div class="edit-card">
+
+            <h2>
+                Edit Document
+            </h2>
+
+            <input
+                id="editTitle"
+                type="text"
+                placeholder="Title"
+            >
+
+            <input
+                id="editModule"
+                type="text"
+                placeholder="Module"
+            >
+
+            <div class="edit-actions">
+
+                <button
+                    id="cancelEdit"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    id="saveEdit"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="adminToast"
+        class="toast"
+    ></div>
+
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>
